@@ -1,8 +1,8 @@
 @import "settings";
-@import "foundation";
+// @import "foundation";
 
 // Or selectively include components
-// @import
+@import
 //   "foundation/components/accordion",
 //   "foundation/components/alert-boxes",
 //   "foundation/components/block-grid",
@@ -14,13 +14,13 @@
 //   "foundation/components/dropdown-buttons",
 //   "foundation/components/flex-video",
 //   "foundation/components/forms",
-//   "foundation/components/grid",
+   "foundation/components/grid",
 //   "foundation/components/inline-lists",
 //   "foundation/components/joyride",
 //   "foundation/components/keystrokes",
 //   "foundation/components/labels",
 //   "foundation/components/magellan",
-//   "foundation/components/orbit",
+   "foundation/components/orbit";
 //   "foundation/components/pagination",
 //   "foundation/components/panels",
 //   "foundation/components/pricing-tables",
@@ -38,3 +38,115 @@
 //   "foundation/components/type",
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  font-family: "Roboto";
+}
+
+h1 {
+  font-family: "Ubuntu";
+  font-size: 4em;
+  text-align: center;
+  @media #{$small-only} { 
+    font-size: 2.5em;
+  }
+}
+
+navigation {
+  #logo {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+  }
+}
+
+.container {
+  @include grid-row();
+}
+
+section {
+  padding-top: 1em;
+
+  .left {
+    @include grid-column(12);
+    @media #{$medium-up} {
+      @include grid-column(5)
+    }
+  }
+  
+  .right {
+    @include grid-column(12);
+    @media #{$medium-up} {
+      @include grid-column(7)
+    }
+  }
+
+  &:nth-child(odd) {
+    .left {
+      @include grid-column(12);
+      @media #{$medium-up} {
+        @include grid-column(7)
+      }
+    }
+  
+    .right {
+      @include grid-column(12);
+      @media #{$medium-up} {
+        @include grid-column(5)
+      }
+    }
+  }
+
+}
+
+.slogan {
+  font-family: "Ubuntu";
+  color: #333;
+  font-size: 5em;
+  line-height: 1em;
+}
+
+#intro {
+  padding-top: 0;
+  min-height: 100%;
+  background-image: url('http://www.eikona.eu/photo/corporate/074-ENEL.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);  
+  
+  #intro-slogan {
+    margin-top: 45%;
+  }
+
+  #business-man {
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    @media #{$small-only} { display: none; }
+  }
+}
+
+.clients {
+  div {
+    padding: 10px;
+  }
+}
+
+.portfolio {
+  img {
+    padding: 10px;
+  }
+}
+
+#two {
+  background-color: #ded1ca;
+}
+
+#footer {
+  background: url('../img/zigzag.png') top repeat-x #ded1ca;
+}
