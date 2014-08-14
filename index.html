@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation</title>
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/slick.js/slick/slick.css"/>
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
   <body>
@@ -68,16 +68,32 @@
 
     <section>
       <div class="container">
+        <h1>Slideshow</h1>
+        <div class="slideshow">
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+          <img src="http://placehold.it/400x600" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
         <h1>Portfolio</h1>
-        <div class="portfolio">
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
-          <img src="http://placehold.it/400x600" />
+        <div id="masonry">
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
+          <img class="lazy" data-original="http://placehold.it/400x600" width="400" height="600"/>
         </div>
       </div>
     </section>
@@ -97,7 +113,10 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="bower_components/slick.js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

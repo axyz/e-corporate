@@ -40,7 +40,7 @@ $(document).ready(function(){
     ]
   });
 
-  $('.portfolio').slick({
+  $('.slideshow').slick({
     slide: 'img',
     dots: true,
     infinite: false,
@@ -73,5 +73,13 @@ $(document).ready(function(){
     }
     ]
   });
+
+  var $masonry = $('#masonry');
+$("img.lazy").lazyload();
+
+  $masonry.imagesLoaded(function(){
+    $masonry.masonry();
+
+      });
 
 });
