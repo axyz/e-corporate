@@ -75,11 +75,12 @@ $(document).ready(function(){
   });
 
   var $masonry = $('#masonry');
-$("img.lazy").lazyload();
+  $("img.lazy").lazyload();
 
   $masonry.imagesLoaded(function(){
-    $masonry.masonry();
-
-      });
+    $masonry.masonry({
+      columnWidth: 400
+    });
+  });
 
 });
