@@ -94,4 +94,4 @@ window.onload = function () {
     });
 
     $masonry.masonry();
-}
+};
