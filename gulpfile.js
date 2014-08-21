@@ -81,18 +81,19 @@ gulp.task('minify', function() {
 
 gulp.task('static', function() {
   gulp.src(paths.static)
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.dist))
+    .pipe(connect.reload());
 });
 
 
 gulp.task('images', function() {
   gulp.src(paths.images.src)
-    .pipe(gulp.dest(paths.images.dest));
+    .pipe(gulp.dest(paths.images.dest))
+    .pipe(connect.reload());
 });
 
 
 gulp.task('server', function() {
-
   connect.server({
     root: paths.dist,
     port: 9000,
@@ -108,10 +109,7 @@ gulp.task('clean', function() {
 
 
 gulp.task('watch', ['server', 'bower', 'lint', 'sass', 'minify', 'static', 'images'], function() {
-  gulp.watch([paths.static,
-              paths.images.src],
-    ['static', function() {connect.reload()}]
-  );
+  gulp.watch([paths.static, paths.images.src], ['static']);
 
   gulp.watch(paths.scripts.src, ['lint', 'minify']);
 
