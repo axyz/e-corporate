@@ -14,7 +14,7 @@
 //   "foundation/components/dropdown-buttons",
 //   "foundation/components/flex-video",
 //   "foundation/components/forms",
-   "foundation/components/grid";
+   "foundation/components/grid",
 //   "foundation/components/inline-lists",
 //   "foundation/components/joyride",
 //   "foundation/components/keystrokes",
@@ -28,7 +28,7 @@
 //   "foundation/components/reveal",
 //   "foundation/components/side-nav",
 //   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
+   "foundation/components/sub-nav";
 //   "foundation/components/switch",
 //   "foundation/components/tables",
 //   "foundation/components/tabs",
@@ -39,8 +39,8 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:500);
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+@import url(http://fonts.googleapis.com/css?family=Fauna+One);
 
 
 
@@ -51,11 +51,11 @@
 
 body {
   overflow-x: hidden;
-  font-family: "Roboto";
+  font-family: "Fauna One";
 }
 
 h1 {
-  font-family: "Ubuntu";
+  font-family: "Playfair Display";
   font-size: 4em;
   text-align: center;
   @media #{$small-only} { 
@@ -124,10 +124,12 @@ section {
   }
   
   .slogan {
-    font-family: "Ubuntu";
-    color: #333;
-    font-size: 5em;
-    line-height: 1em;
+    font-family: "Playfair Display";
+    color: #fafafa;
+    font-size: 62px;
+    line-height: 60px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px rgba(128,128,128,.5);
   }
 
 }
@@ -141,7 +143,7 @@ section {
 .section--intro {
   padding-top: 0;
   min-height: 100%;
-  background-image: url('http://www.eikona.eu/photo/corporate/074-ENEL.jpg');
+  background-image: url('https://s3.amazonaws.com/ooomf-com-files/00aJ68yTtSFz9gcuHBcR_render0004.jpg'); /*url('http://www.eikona.eu/photo/corporate/074-ENEL.jpg');*/
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -172,6 +174,10 @@ section {
   }
 }
 
+.portfolio__filter {
+  @include sub-nav();
+}
+
 #masonry {
   margin: 0 auto;
   margin-bottom: 5em;
@@ -185,7 +191,7 @@ section {
 }
 
 .section--two {
-  background-image: url('http://www.photoshoptextures.com/sky-textures/blue-sky-texture.jpg');
+  background-image: url('https://s3.amazonaws.com/ooomf-com-files/whtXWmDGTTuddi1ncK5v_IMG_0097.jpg'); /*url('http://www.photoshoptextures.com/sky-textures/blue-sky-texture.jpg');*/
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -193,4 +199,25 @@ section {
 
 .section--footer {
   background: url('../img/zigzag.png') top repeat-x #ded1ca;
+}
+
+
+
+
+.pace .pace-progress {
+  background: #29d;
+  position: fixed;
+  z-index: 2000;
+  top: 10px !important;
+  left: 0;
+  height: 2px;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
 }

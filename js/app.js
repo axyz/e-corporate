@@ -1,12 +1,6 @@
-$(document).foundation({
-  orbit: {
-    slide_number: false,
-    navigation_arrows: false,
-    resume_on_mouseout: true
-  }
-});
-
 $(document).ready(function(){
+  Pace.start();
+
   $('.clients').slick({
     dots: true,
     infinite: false,
@@ -74,8 +68,30 @@ $(document).ready(function(){
     ]
   });
 
+  console.log(window.location.hash);
 
 });
+
+var filterMasonry = function(masonry, hash) {
+  if(hash !== "" && hash != "#portfolio") {
+    masonry.find('img').hide();
+    masonry.masonry();
+    masonry.find('.' + hash.slice(1)).show();
+    masonry.masonry();
+    document.getElementById('portfolio').scrollIntoView(true);
+  }else {
+    if(hash == "#portfolio") {
+      document.getElementById('portfolio').scrollIntoView(true);
+    }
+    masonry.find('img').show();
+    masonry.masonry();
+  }
+};
+
+window.onhashchange = function() {
+  filterMasonry($('#masonry'), window.location.hash);
+};
+
 
 window.onload = function () {
   var $masonry = $('#masonry');
@@ -94,4 +110,7 @@ window.onload = function () {
     });
 
     $masonry.masonry();
+
+    filterMasonry($masonry, window.location.hash);
+
 };

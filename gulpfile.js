@@ -7,6 +7,7 @@ var sass        = require('gulp-sass'),
     connect     = require('gulp-connect'),
     bowerFiles  = require('main-bower-files'),
     filter      = require('gulp-filter'),
+    uncss       = require('gulp-uncss'),
     clean       = require('gulp-clean');
 
 
@@ -43,6 +44,10 @@ gulp.task('bower', function() {
 
     .pipe(cssFilter)
     .pipe(concat('vendor.css'))
+    .pipe(uncss({
+      html: ['static/index.html'],
+      ignore: [/slick.*/]
+    }))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(cssFilter.restore())
 
@@ -53,25 +58,26 @@ gulp.task('bower', function() {
 
 
 gulp.task('lint', function() {
-  gulp.src(paths.scripts.src)
+  return gulp.src(paths.scripts.src)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 
 gulp.task('sass', function() {
-  gulp.src(paths.styles.src)
+  return gulp.src(paths.styles.src)
     .pipe(sass({
       includePaths: ['bower_components/foundation/scss'],
       outputStyle: 'compressed'
     }))
+    .pipe(uncss({html: ['static/index.html']}))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(connect.reload());
 });
 
 
 gulp.task('minify', function() {
-  gulp.src(paths.scripts.src)
+  return gulp.src(paths.scripts.src)
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
@@ -80,14 +86,14 @@ gulp.task('minify', function() {
 
 
 gulp.task('static', function() {
-  gulp.src(paths.static)
+  return gulp.src(paths.static)
     .pipe(gulp.dest(paths.dist))
     .pipe(connect.reload());
 });
 
 
 gulp.task('images', function() {
-  gulp.src(paths.images.src)
+  return gulp.src(paths.images.src)
     .pipe(gulp.dest(paths.images.dest))
     .pipe(connect.reload());
 });
